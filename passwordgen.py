@@ -1,7 +1,12 @@
 import random
+import string
 
-characters = "01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ&*(){}[]|/?!@#$%^abcdefghijklmnopqrstuvwxyz"
-password_length = 50
-password = "".join(random.sample(characters, password_length))
+def random_password(length):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for _ in range(length))
+    return password
 
-print("Your Generated Password: %s" %password)
+password_length = 60
+password = random_password(password_length)
+
+print("Your Generated Password: {}".format(password))
